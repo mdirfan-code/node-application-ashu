@@ -30,6 +30,7 @@ app.get('/createTable', async (req, res) => {
         Age INT
       )
     `);
+    console.log("Table created successfully!")
 
     res.send('Table created successfully!');
   } catch (error) {
@@ -46,6 +47,7 @@ app.get('/executeQuery', async (req, res) => {
 
     // Execute a sample query
     const result = await sql.query('SELECT * FROM TestTable');
+    console.log(result.recordset);
 
     res.send(result.recordset);
   } catch (error) {
@@ -55,6 +57,6 @@ app.get('/executeQuery', async (req, res) => {
 });
 
 // Start the server
-app.listen(3001, () => {
-  console.log('Server is running on port 3001');
+app.listen(80, () => {
+  console.log('Server is running on port 80');
 });
